@@ -3,7 +3,6 @@
 Class-Roomed is a generic browser-based prototype for academic institutions. It demonstrates a centralized way to register classrooms and facilities, review availability, submit reservations for automatic room assignment, send weekly assignment notifications for one month, flag scheduling conflicts, record temporary occupancy confirmation, and review utilization reports. The login page uses the graduation photograph supplied with this project.
 
 ## Project files
-
 - `index.html` — login, dashboard, weekly room calendar, reservations, classroom/facility inventory, automated assignment notifications, reports, and modals.
 - `style.css` — responsive layout, navigation, calendar, status labels, dashboard, forms, and photo-backed login panel.
 - `script.js` — demo role permissions, browser persistence, capacity/equipment/time conflict checks, automatic room assignment, four-week weekly notification schedule, manual faculty cancellation, temporary occupancy confirmation, automatic release of unconfirmed bookings, and CSV reporting.
@@ -11,7 +10,6 @@ Class-Roomed is a generic browser-based prototype for academic institutions. It 
 - `graduation-background.png` — the user-provided login background image.
 
 ## Run the prototype
-
 1. Extract `ClassRoomed_Project.zip`.
 2. Open `index.html` in a modern browser. A local web server can also be used.
 3. Sign in with a demo account (username / password): `admin` / `admin123`, `maintenance` / `maint123`, `msantos` / `faculty123`, `student` / `student123`. Passwords are stored as plain text in the browser for this prototype only; a real system needs hashed passwords and server-side authentication.
@@ -23,7 +21,6 @@ Class-Roomed is a generic browser-based prototype for academic institutions. It 
 5. The prototype saves demo data in the current browser using `localStorage`. Data does not automatically synchronize between different users or devices.
 
 ## Features mapped to the study objectives
-
 - **Scheduling requirements and constraints:** room capacity, room type, required equipment, and maintenance status are checked before submission or approval.
 - **Conflict detection:** overlapping reservations for the same room, capacity mismatches, incompatible equipment, and maintenance conflicts are flagged.
 - **Role-based interface:** administrator, faculty/professor, and student (view-only) experiences have different actions available.
@@ -34,7 +31,6 @@ Class-Roomed is a generic browser-based prototype for academic institutions. It 
 - **Database design:** the provided MySQL schema models users, roles, buildings, rooms, equipment, reservations, weekly notification schedules, maintenance, occupancy confirmation, and audit logging.
 
 ## Suggested functional and integration test checklist
-
 1. Sign in as each role and verify the correct actions appear.
 2. As a Student, confirm that availability and reservation information can be viewed but reservation and editing actions are unavailable.
 3. As Faculty / Professor, submit a reservation that fits room capacity/equipment and does not overlap another active request; verify it appears as **Pending Approval**, and that approving it as Administrator creates the four-week weekly notification schedule.
@@ -48,16 +44,7 @@ Class-Roomed is a generic browser-based prototype for academic institutions. It 
 11. Export a CSV report as Administrator and check that reservation, room, schedule, status, and conflict fields are included.
 12. When the MySQL backend is implemented, test API/database integration, authentication and server-side role checks, simultaneous booking attempts, transaction-based conflict protection, audit records, and report queries.
 
-## Scope of the study
-
-The study covers the design, development, and evaluation of an Automated Classroom Assignment and Facility Reservation System that aims to organize classroom assignments, facility reservations, user access, and room utilization through a centralized web-based platform. The system includes classroom and facility registration by the administrator, availability checking, classroom reservation, conflict detection, role-based access, and administrative scheduling. It allows administrators to manage classroom information, schedules, and facility requests, while teachers can request or reserve available classrooms and students can view classroom availability and reservation information. The system also provides room-status monitoring, reports on room usage and scheduling conflicts, and temporary occupancy confirmation for reserved rooms. The study includes functional and integration testing of the system's interface, database, access controls, reservation process, conflict detection, room-status display, and reporting features. It focuses only on classroom and facility scheduling and does not cover transportation, payroll, grading, or other unrelated school administrative functions.
-
-## Limitations of the study
-
-The system is limited by the accuracy and completeness of information entered and maintained by users. Incorrect schedules, classroom details, or facility statuses may result in inaccurate availability information and reports. The system cannot physically verify classroom occupancy without external technologies such as occupancy sensors or access-control systems. Similarly, the automatic release of unconfirmed reservations is based only on the absence of user confirmation and cannot determine whether a room is actually occupied. While the system can prevent recorded double bookings, it cannot prevent unauthorized physical use of classrooms or use beyond a reservation period. The reliability of reports also depends on updated reservation records and accurate user entries. Students have view-only privileges and faculty have limited editing privileges, so some corrections or emergency changes may require administrator intervention. The system can identify scheduling conflicts but does not independently determine the best solution for every conflict. Finally, the findings are limited to the facilities, policies, users, and scheduling requirements of the institution for which the system is developed and may not directly apply to institutions with different requirements.
-
 ## Important implementation note
-
 This deliverable is a **front-end prototype**. The browser files currently use `localStorage`; they are not connected to MySQL and are not a secure multi-user service. UI role restrictions are for demonstration and must not be treated as production authorization. To deploy the system, implement a server-side API, secure authentication and authorization, database transactions or equivalent locking for concurrent reservations, occupancy-confirmation records, automatic-release jobs, and audit logging. The SQL file is a starting point for that implementation.
 
 The classroom/building names, reservations, and reports shown in the prototype are generic illustrative sample data, not official records for any specific institution.
